@@ -8,6 +8,8 @@ This project documents the setup of a personal cybersecurity testing lab as part
 ## Objective
 Build a virtualized lab environment with an isolated attacker network, configured for full internet access and file interoperability between host and guest machines.
 
+![](Kali-Linux.png)
+
 ## Environment & Tools
 - **Hypervisor:** Oracle VirtualBox (latest version)
 - **Attack Machine:** Kali Linux
@@ -28,13 +30,16 @@ Build a virtualized lab environment with an isolated attacker network, configure
 1. Installed 7-Zip for archive extraction.
 2. Installed the latest version of Oracle VirtualBox.
 3. Created a custom NAT Network (`NatNetwork`) with subnet `10.0.0.0/24` and DHCP enabled.
-4. Downloaded and imported the Kali Linux VM appliance into VirtualBox.
-5. Attached the Kali Linux VM's network adapter to the NAT Network.
-6. Configured Kali Linux with a static IP (`10.0.0.2/24`), gateway `10.0.0.1`, and DNS `8.8.8.8`.
-7. Enabled clipboard sharing and drag-and-drop (Bidirectional) in VM settings.
-8. Enabled a shared folder mapping the host's `/Downloads` directory to the VM.
-9. Verified internet connectivity from Kali Linux.
-10. Took a snapshot of the VM to preserve the clean baseline state.
+![](Virtualbox-Nat-Network-Settings.png)
+5. Downloaded and imported the Kali Linux VM appliance into VirtualBox.
+6. Attached the Kali Linux VM's network adapter to the NAT Network.
+![](Kali-Nat-Network.png)
+8. Configured Kali Linux with a static IP (`10.0.0.2/24`), gateway `10.0.0.1`, and DNS `8.8.8.8`.
+![](Kali-Linux-Network-Settings.png)
+10. Enabled clipboard sharing and drag-and-drop (Bidirectional) in VM settings.
+11. Enabled a shared folder mapping the host's `/Downloads` directory to the VM.
+12. Verified internet connectivity from Kali Linux.
+13. Took a snapshot of the VM to preserve the clean baseline state.
 
 ## Troubleshooting Notes
 Encountered an internet connectivity issue on Kali Linux, common with VirtualBox v7 / Kali 2026.1+ due to IPv4 duplicate address detection (DAD) delays. Resolved with:
